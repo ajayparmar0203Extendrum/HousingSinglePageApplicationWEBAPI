@@ -1,8 +1,11 @@
-﻿using System.Security.Cryptography;
+﻿using HousingSinglePageApplicationWEBAPI.Interfaces;
+using HousingSinglePageApplicationWEBAPI.Models;
+using Microsoft.EntityFrameworkCore;
+using System.Security.Cryptography;
 
 namespace HousingSinglePageApplicationWEBAPI.Data.Repo
 {
-    public class UserRepository
+    public class UserRepository : IUserRepository
     {
         private readonly DataContext dc;
         public UserRepository(DataContext dc)

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using HousingSinglePageApplicationWEBAPI.Models;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 
 namespace HousingSinglePageApplicationWEBAPI.Data

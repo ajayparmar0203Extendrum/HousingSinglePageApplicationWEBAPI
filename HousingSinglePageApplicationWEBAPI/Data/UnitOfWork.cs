@@ -1,4 +1,5 @@
 ﻿using HousingSinglePageApplicationWEBAPI.Data.Repo;
+using HousingSinglePageApplicationWEBAPI.Interfaces;
 
 namespace HousingSinglePageApplicationWEBAPI.Data
 {
