@@ -1,6 +1,10 @@
-﻿namespace HousingSinglePageApplicationWEBAPI.Data.Repo
+﻿using HousingSinglePageApplicationWEBAPI.Interfaces;
+using HousingSinglePageApplicationWEBAPI.Models;
+using Microsoft.EntityFrameworkCore;
+
+namespace HousingSinglePageApplicationWEBAPI.Data.Repo
 {
-    public class FurnishingTypeRepository
+    public class FurnishingTypeRepository : IFurnishingTypeRepository
     {
         private readonly DataContext dc;
 

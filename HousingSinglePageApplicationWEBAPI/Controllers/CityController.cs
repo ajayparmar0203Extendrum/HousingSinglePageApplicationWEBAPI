@@ -1,5 +1,10 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using AutoMapper;
+using HousingSinglePageApplicationWEBAPI.Dtos;
+using HousingSinglePageApplicationWEBAPI.Interfaces;
+using HousingSinglePageApplicationWEBAPI.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HousingSinglePageApplicationWEBAPI.Controllers
@@ -26,13 +31,13 @@ namespace HousingSinglePageApplicationWEBAPI.Controllers
         {
             var cities = await uow.CityRepository.GetCitiesAsync();
 
-            var citiesDto = mapper.Map<IEnumerable<CityDto>>(cities);
+            var citiesDto = mapper.Map<IEnumerable<CityDtocs>>(cities);
             return Ok(citiesDto);
         }
 
         // Post api/city/post --Post the data in JSON Format
         [HttpPost("post")]
-        public async Task<IActionResult> AddCity(CityDto cityDto)
+        public async Task<IActionResult> AddCity(CityDtocs cityDto)
         {
             var city = mapper.Map<City>(cityDto);
             city.LastUpdatedBy = 1;
@@ -42,7 +47,7 @@ namespace HousingSinglePageApplicationWEBAPI.Controllers
             return StatusCode(201);
         }
         [HttpPut("update/{id}")]
-        public async Task<IActionResult> UpdateCity(int id, CityDto cityDto)
+        public async Task<IActionResult> UpdateCity(int id, CityDtocs cityDto)
         {
             if (id != cityDto.Id)
                 return BadRequest("Update not allowed");

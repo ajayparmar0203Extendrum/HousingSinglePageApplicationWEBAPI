@@ -1,12 +1,17 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
+﻿
+using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using HousingSinglePageApplicationWEBAPI.Dtos;
+using HousingSinglePageApplicationWEBAPI.Interfaces;
+using HousingSinglePageApplicationWEBAPI.Models;
+
 
 namespace HousingSinglePageApplicationWEBAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PropertyController : ControllerBase
+    public class PropertyController :   BaseController
     {
 
         private readonly IUnitOfWork uow;

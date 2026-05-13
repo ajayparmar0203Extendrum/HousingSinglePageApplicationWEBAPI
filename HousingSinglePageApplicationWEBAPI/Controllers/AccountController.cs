@@ -1,5 +1,12 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using HousingSinglePageApplicationWEBAPI.Dtos;
+using HousingSinglePageApplicationWEBAPI.Errors;
+using HousingSinglePageApplicationWEBAPI.Extensions;
+using HousingSinglePageApplicationWEBAPI.Interfaces;
+using HousingSinglePageApplicationWEBAPI.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
@@ -72,7 +79,7 @@ namespace HousingSinglePageApplicationWEBAPI.Controllers
 
             var claims = new Claim[] {
                 new Claim(ClaimTypes.Name,user.Username),
-                new Claim(ClaimTypes.NameIdentifier,user.Id.ToString())
+                new Claim(ClaimTypes.NameIdentifier,user.Username.ToString())
             };
 
             var signingCredentials = new SigningCredentials(

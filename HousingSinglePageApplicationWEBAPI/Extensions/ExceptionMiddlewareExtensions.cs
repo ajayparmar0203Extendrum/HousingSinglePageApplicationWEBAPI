@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Diagnostics;
+﻿using HousingSinglePageApplicationWEBAPI.Middlewares;
+using Microsoft.AspNetCore.Diagnostics;
 using System.Net;
 
 namespace HousingSinglePageApplicationWEBAPI.Extensions

@@ -1,6 +1,10 @@
-﻿namespace HousingSinglePageApplicationWEBAPI.Data.Repo
+﻿using HousingSinglePageApplicationWEBAPI.Interfaces;
+using HousingSinglePageApplicationWEBAPI.Models;
+using Microsoft.EntityFrameworkCore;
+
+namespace HousingSinglePageApplicationWEBAPI.Data.Repo
 {
-    public class CityRepository
+    public class CityRepository: ICityRepository
     {
         private readonly DataContext dc;
 
