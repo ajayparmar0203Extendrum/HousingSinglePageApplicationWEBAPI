@@ -4,23 +4,10 @@ using HousingSinglePageApplicationWEBAPI.Helpers;
 using HousingSinglePageApplicationWEBAPI.Interfaces;
 using HousingSinglePageApplicationWEBAPI.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Diagnostics;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Data.SqlClient;
-using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
-using Microsoft.IdentityModel.Tokens;
-using System;
-using System.IdentityModel.Tokens.Jwt;
 using System.Text;
-using System.Text;
+
 
 
 
@@ -85,19 +72,19 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     options.TokenValidationParameters = new TokenValidationParameters
     {
         ValidateIssuerSigningKey = true,
-
         IssuerSigningKey = new SymmetricSecurityKey(
-            Encoding.UTF8.GetBytes(
-                builder.Configuration["JwtSettings:Key"])),
+            Encoding.UTF8.GetBytes(builder.Configuration["JwtSettings:Key"])),
 
         ValidateIssuer = false,
         ValidIssuer = builder.Configuration["JwtSettings:Issuer"],
 
         ValidateAudience = false,
+        ValidAudience = builder.Configuration["JwtSettings:Audience"],
 
         ValidateLifetime = true,
 
-        ClockSkew = TimeSpan.Zero
+
+        ClockSkew = TimeSpan.FromMinutes(30)
     };
 });
 

@@ -10,7 +10,14 @@ namespace HousingSinglePageApplicationWEBAPI.Controllers
     {
         protected int GetUserId()
         {
-            return int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            if (int.TryParse(userIdClaim, out int userId))
+            {
+                return userId;
+            }
+
+            throw new UnauthorizedAccessException("Invalid User ID claim");
         }
     }
 }
