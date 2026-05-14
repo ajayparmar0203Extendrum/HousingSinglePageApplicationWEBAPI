@@ -79,7 +79,7 @@ namespace HousingSinglePageApplicationWEBAPI.Controllers
 
             var claims = new Claim[] {
                 new Claim(ClaimTypes.Name,user.Username),
-                new Claim(ClaimTypes.NameIdentifier,user.Username.ToString())
+                new Claim(ClaimTypes.NameIdentifier,user.Id.ToString())
             };
 
             var signingCredentials = new SigningCredentials(
